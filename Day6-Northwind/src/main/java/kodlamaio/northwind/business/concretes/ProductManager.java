@@ -1,8 +1,8 @@
-package business.concretes;
+package kodlamaio.northwind.business.concretes;
 
-import business.abstracts.ProductService;
-import dataAccess.abstracts.ProductDao;
-import entities.concretes.Product;
+import kodlamaio.northwind.business.abstracts.ProductService;
+import kodlamaio.northwind.dataAccess.abstracts.ProductDao;
+import kodlamaio.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ProductManager implements ProductService {
 
-    private ProductDao productDao;
+    private final ProductDao productDao;
 
     @Autowired
     public ProductManager(ProductDao productDao) {
@@ -22,4 +22,5 @@ public class ProductManager implements ProductService {
     public List<Product> getAll() {
         return this.productDao.findAll();
     }
+
 }
